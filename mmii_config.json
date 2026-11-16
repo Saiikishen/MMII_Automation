@@ -1,0 +1,132 @@
+{
+  "images": null,
+  "itksnap_bin": "C:/Program Files/ITK-SNAP 4.4/bin",
+  "main": "t1.nii",
+  "registration": {
+    "iterations": "100x100x100x100x100",
+    "threads": 4,
+    "metric": "NMI"
+  },
+  "groups": {
+    "FLAIR": {
+      "source": "flair.nii",
+      "method": "rigid",
+      "qc_anatomy": true
+    },
+    "PASCOM": {
+      "source": "wwt1_u_rc1t1_Template.nii",
+      "method": "rigid",
+      "initialize_t1_translation": true,
+      "iterations": "100x100x100",
+      "jitter": 0,
+      "qc_anatomy": true
+    },
+    "SISCOM": {
+      "source": "mr.nii",
+      "method": "rigid",
+      "qc_anatomy": true
+    },
+    "MELD": {
+      "source": "T1w.nii",
+      "method": "rigid_or_identical",
+      "qc_anatomy": true
+    },
+    "VBM": {
+      "source": "probFCD.hdr",
+      "method": "centers",
+      "qc_anatomy": false
+    },
+    "Texture": {
+      "source": "Texture_MRI.nii",
+      "method": "centers",
+      "qc_anatomy": false
+    }
+  },
+  "layers": [
+    {
+      "file": "flair.nii",
+      "name": "FLAIR",
+      "group": "FLAIR",
+      "color": "Grayscale",
+      "alpha": 0
+    },
+    {
+      "file": "wwt1_u_rc1t1_Template.nii",
+      "name": "PASCOM anatomical reference",
+      "group": "PASCOM",
+      "color": "Grayscale",
+      "alpha": 0
+    },
+    {
+      "file": "wwpet_u_rc1t1_Template.nii",
+      "name": "PASCOM PET reference",
+      "group": "PASCOM",
+      "color": "Jet",
+      "alpha": 0
+    },
+    {
+      "file": "Hypo_PASCOM_without_C.nii",
+      "name": "PASCOM Hypo",
+      "group": "PASCOM",
+      "color": "Jet",
+      "minimum": 4,
+      "alpha": 0.65
+    },
+    {
+      "file": "Hyper_PASCOM_without_C.nii",
+      "name": "PASCOM Hyper",
+      "group": "PASCOM",
+      "color": "Jet",
+      "minimum": 4,
+      "alpha": 0.65
+    },
+    {
+      "file": "Texture_MRI.nii",
+      "name": "Texture MRI - center alignment needs review",
+      "group": "Texture",
+      "color": "Hot",
+      "midpoint_y": 0.25,
+      "alpha": 0
+    },
+    {
+      "file": "mr.nii",
+      "name": "SISCOM anatomical reference",
+      "group": "SISCOM",
+      "color": "Grayscale",
+      "alpha": 0
+    },
+    {
+      "file": "SISCOM_without_C.nii",
+      "name": "SISCOM",
+      "group": "SISCOM",
+      "color": "Spring",
+      "minimum": 1.5,
+      "alpha": 0.65
+    },
+    {
+      "file": "probFCD.hdr",
+      "name": "VBM FCD probability - center alignment needs review",
+      "group": "VBM",
+      "color": "Cool",
+      "minimum": 0.5,
+      "alpha": 0.65
+    },
+    {
+      "file": "T1w.nii",
+      "name": "MELD T1 reference",
+      "group": "MELD",
+      "color": "HSV",
+      "alpha": 0
+    },
+    {
+      "file": "prediction.nii",
+      "name": "MELD prediction",
+      "group": "MELD",
+      "color": "Copper",
+      "minimum": 1,
+      "maximum": 100,
+      "alpha": 0.65
+    }
+  ],
+  "schema_version": 2
+}

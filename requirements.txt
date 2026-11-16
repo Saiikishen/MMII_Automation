@@ -1,0 +1,5 @@
+numpy>=1.24
+# SciPy supports PASCOM anatomical initialization and independent QC.
+scipy>=1.10
+# Matplotlib is used only for the optional QC montage.
+matplotlib>=3.7
