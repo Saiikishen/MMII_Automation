@@ -152,7 +152,7 @@ Review the midline, cortical outlines, ventricles, cerebellum and full anatomica
 | `qc_registration.py` | Read completed-run metadata, calculate registration measurements and create checkerboards. |
 | `portable_run.py` | Copy and verify included inputs, update workspace and metadata paths, and package older runs without repeating registration. |
 
-See [MMII_Pipeline_Technical_Guide.docx](MMII_Pipeline_Technical_Guide.docx) for the 15-page explanation of configuration, algorithms, transform conventions, portability and validation.
+See [MMII_Pipeline_Technical_Guide.docx](MMII_Pipeline_Technical_Guide.docx) for more details
 
 
 ## References
